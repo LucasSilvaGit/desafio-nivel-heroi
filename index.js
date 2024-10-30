@@ -1,5 +1,4 @@
 /*
-
 Instruções para entrega
 # 1️⃣ Desafio Classificador de nível de Herói
 **O Que deve ser utilizado**
@@ -20,25 +19,30 @@ Se XP for maior ou igual a 10.001 = Radiante
 ## Saída
 Ao final deve se exibir uma mensagem:
 "O Herói de nome **{nome}** está no nível de **{nivel}**"
-
 */
 
-let nomeHeroi = "Harold";
-let quantidadeXP = 6000;
+//
+// testado com node index.js "Nome Heroi" "Quantidade XP"
+// ex. node index.js "Harold" "3200" | node index.js "Harry" "6000" 
+let nomeHeroi = process.argv[2] || "DIO";
+let quantidadeXP = parseInt(process.argv[3]) || 10001;
 let nivel = '';
 
 switch(true) {
-    case (quantidadeXP < 1000):
+    case (quantidadeXP <= 1000):
         nivel = "Ferro";
         break;
-    case (quantidadeXP >= 1000 && quantidadeXP <= 2000):
+    case (quantidadeXP > 1000 && quantidadeXP <= 2000):
         nivel = "Bronze";
         break;
     case (quantidadeXP > 2000 && quantidadeXP <= 5000):
         nivel = "Prata";
         break;
-    case (quantidadeXP > 7000 && quantidadeXP <= 8000):
+    case (quantidadeXP > 5000 && quantidadeXP <= 7000):
         nivel = "Ouro";
+        break;
+    case (quantidadeXP > 7000 && quantidadeXP <= 8000):
+        nivel = "Platina";
         break;
     case (quantidadeXP > 8000 && quantidadeXP <= 9000):
         nivel = "Ascendente";
@@ -46,7 +50,7 @@ switch(true) {
     case (quantidadeXP > 9000 && quantidadeXP <= 10000):
         nivel = "Imortal";
         break;
-   default:
+   case (quantidadeXP > 10000):
         nivel = "Radiante";
 }
 
